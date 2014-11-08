@@ -41,12 +41,11 @@ func (self *SomeChunkedDataThingy) Read(p []byte) (int, error) {
 
 ```go
 type Buffer struct {
-	buf       []byte            // contents are the bytes buf
-	off       int               // write at &buf[off]
-	runeBytes [utf8.UTFMax]byte // avoid allocation of slice on each WriteByte or Rune
+	buf       []byte
+	off       int
+	runeBytes [utf8.UTFMax]byte
 }
 
-// ErrTooLarge is passed to panic if memory cannot be allocated to store data in a buffer.
 var ErrTooLarge = errors.New("gofixbuf.Buffer: too large")
 ```
 

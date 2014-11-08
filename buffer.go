@@ -21,7 +21,7 @@ type Buffer struct {
 	runeBytes [utf8.UTFMax]byte // avoid allocation of slice on each WriteByte or Rune
 }
 
-// ErrTooLarge is passed to panic if memory cannot be allocated to store data in a buffer.
+// ErrTooLarge is returned if memory cannot be allocated to store data in a buffer.
 var ErrTooLarge = errors.New("gofixbuf.Buffer: too large")
 
 // Bytes returns a slice of the contents of the buffer;
